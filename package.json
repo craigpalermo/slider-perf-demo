@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fibonacci": "^1.6.6",
+    "rc-slider": "^8.6.6",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "styled-components": "^4.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
