@@ -1,19 +1,23 @@
 import React, {useEffect, useState, memo} from 'react'
+
 import fibonacci from 'fibonacci'
 import styled from 'styled-components'
+
+import ConfigDial from '../ConfigDial'
 
 const WorkerConfig = styled.div`
   border: 1px solid black;
   padding: 12px;
 `
 
-const LOOP_COUNT = 500
-const MAX_LOOP_COUNT = 1000
+const LOOP_MULTIPLYER = 100
+const MAX_FREQUENCY = 10
 
 function TimedWorker() {
   const [timerId, setTimerId] = useState(null)
   const [isWorking, setIsWorking] = useState(false)
-  const [loopCount, setLoopCount] = useState(LOOP_COUNT)
+  const [loopCount, setLoopCount] = useState(5)
+  const [frequency, setFrequency] = useState(5)
 
   function toggleWorker() {
     clearInterval(timerId)
@@ -21,56 +25,58 @@ function TimedWorker() {
     setIsWorking(!isWorking)
   }
 
-  function onLoopCountChange(event) {
-    if (event.target.value <= MAX_LOOP_COUNT) {
-      setLoopCount(event.target.value)
-    } else {
-      console.warn(`Loop count must be less than ${MAX_LOOP_COUNT}`)
-    }
-
-    // Restart worker if necessary
+  function resetWorker() {
     if (isWorking) {
       clearInterval(timerId)
       setTimerId(null)
-      resetWorkerInterval()
+      setTimerId(getNewInterval())
     }
   }
 
-  function resetWorkerInterval() {
-    const intervalId = setInterval(() => {
+  function onLoopCountChange(event) {
+    setLoopCount(parseInt(event.target.value))
+  }
+
+  function onFrequencyChange(event) {
+    setFrequency(parseInt(event.target.value))
+  }
+
+  function getNewInterval() {
+    const ms = 100 * (MAX_FREQUENCY - frequency + 1);
+    console.log(`Worker now set to ${ms}ms`)
+
+    return setInterval(() => {
       console.log('Starting work...')
       let count = 0;
 
-      while (count++ < loopCount) {
-        const x = fibonacci.iterate(count)
-        // console.log(x)
+      while (count++ < (loopCount * LOOP_MULTIPLYER)) {
+        fibonacci.iterate(count)
       }
 
       console.log('Finished!');
-    }, 1000)
-
-    setTimerId(intervalId)
+    }, ms)
   }
 
   useEffect(() => {
-    console.log('effect')
-    if (!timerId && isWorking) {
-      resetWorkerInterval()
+    if (isWorking) {
+      resetWorker()
     }
 
     return () => clearInterval(timerId)
-  })
+  }, [isWorking, frequency, loopCount])
 
   return (<WorkerConfig>
-    <div>
-      <span>Iterations per interval (n):</span>
-      <input
-        type={'number'}
-        onChange={onLoopCountChange}
-        value={loopCount}
-        max={MAX_LOOP_COUNT}
-      />
-    </div>
+    <ConfigDial
+      onChange={onLoopCountChange}
+      value={loopCount}
+      label={'Intensity'}
+    />
+    <ConfigDial
+      onChange={onFrequencyChange}
+      value={frequency}
+      label={'Frequency'}
+      max={MAX_FREQUENCY}
+    />
 
     <div>
       Worker status:
