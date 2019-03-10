@@ -2,7 +2,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
 const input = `
-# Affect of Background JS Processes on UX Performance with React
+# Effect of Background JS Processes on UX Performance with React
 _Craig Palermo - March 10, 2019_
 
 ## Problem
