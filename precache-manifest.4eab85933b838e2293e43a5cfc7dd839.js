@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/slider-perf-demo/static/js/runtime~main.a98c9a1b.js"
   },
   {
-    "revision": "5f57f3bed068656c7d4f",
-    "url": "/slider-perf-demo/static/js/main.66200e7a.chunk.js"
+    "revision": "66d6c0f575aab04f78cd",
+    "url": "/slider-perf-demo/static/js/main.f65007ae.chunk.js"
   },
   {
     "revision": "f7b1eebafad62d4d28ad",
     "url": "/slider-perf-demo/static/js/2.3296e5cb.chunk.js"
   },
   {
-    "revision": "5f57f3bed068656c7d4f",
+    "revision": "66d6c0f575aab04f78cd",
     "url": "/slider-perf-demo/static/css/main.be5ead27.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/slider-perf-demo/static/css/2.781af80f.chunk.css"
   },
   {
-    "revision": "79d1a49e2f8ffe129efa66fc3d739e68",
+    "revision": "f77f9cae753f44e61038e942c30ca923",
     "url": "/slider-perf-demo/index.html"
   }
 ];
