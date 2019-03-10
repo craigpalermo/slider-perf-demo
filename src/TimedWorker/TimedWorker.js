@@ -63,7 +63,7 @@ function TimedWorker() {
 
   return (<WorkerConfig>
     <div>
-      <span>Iterations per interval:</span>
+      <span>Iterations per interval (n):</span>
       <input
         type={'number'}
         onChange={onLoopCountChange}
