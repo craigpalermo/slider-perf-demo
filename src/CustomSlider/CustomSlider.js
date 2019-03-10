@@ -7,12 +7,19 @@ const sliderDefault = 50;
 
 export default function CustomSlider() {
   const [sliderVal, setSliderVal] = useState(sliderDefault)
+  const handleStyle = {
+    height: '24px',
+    width: '24px',
+    marginTop: '-11px',
+    marginLeft: '-11px',
+  }
 
   return (<div>
-    <h2>Slider value: {sliderVal}</h2>
+    <h3>Slider value: {sliderVal}</h3>
     <Slider
       onChange={setSliderVal}
       defaultValue={sliderDefault}
+      handleStyle={[handleStyle]}
     />
   </div>)
 }

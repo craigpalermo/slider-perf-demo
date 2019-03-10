@@ -1,32 +1,37 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import {ThemeProvider, Flex, Box} from 'pcln-design-system'
 
 import CustomSlider from './CustomSlider'
 import TimedWorker from './TimedWorker'
+import Readme from './Readme'
 
-const Container = styled.div`
-  margin: 40px;
+const Container = styled(Flex)`
+  max-width: 680px;
 `;
+
+const Demo = styled(Box)`
+  border-radius: 10px;
+  margin-top: 24px;
+  padding: 24px;
+`
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
-          <h1>UX Perf with Background CPU Task</h1>
-          <TimedWorker/>
-          <CustomSlider/>
-
-          <h3>What is this?</h3>
-          <p>This application demonstrates the effect of background CPU tasks on UX in
-          JavaScript's single-threaded environment. Background work is simulated by computing
-          Fibonacci numbers from 0 to n, for n iterations. Framerate while dragging the slider
-          should degrade as n increases. Turn the background worker on/off and adjust its parameters
-          using the controls above.</p>
-
-          <p>This demo uses <a href={'https://www.npmjs.com/package/rc-slider'}>rc-slider</a> with default settings,
-          and does not perform any action on change.</p>
-        </Container>
+        <ThemeProvider>
+          <Container
+            flexDirection={'column'}
+            m={4}
+          >
+            <Readme/>
+            <Demo bg={'lightGray'}>
+              <TimedWorker/>
+              <CustomSlider/>
+            </Demo>
+          </Container>
+        </ThemeProvider>
       </div>
     );
   }

@@ -2,11 +2,12 @@ import React, {useEffect, useState, memo} from 'react'
 
 import fibonacci from 'fibonacci'
 import styled from 'styled-components'
+import {Button, Box, Text, Flex} from 'pcln-design-system'
 
 import ConfigDial from '../ConfigDial'
 
-const WorkerConfig = styled.div`
-  border: 1px solid black;
+const WorkerConfig = styled(Box)`
+  border: 1px solid ${props => props.theme.colors.borderGray};
   padding: 12px;
 `
 
@@ -78,13 +79,13 @@ function TimedWorker() {
       max={MAX_FREQUENCY}
     />
 
-    <div>
-      Worker status:
-      <button
+    <Flex>
+      <Text m={2}>Worker status:</Text>
+      <Button
         onClick={toggleWorker}
       >{isWorking ? 'ON' : 'OFF'}
-      </button>
-    </div>
+      </Button>
+    </Flex>
   </WorkerConfig>);
 }
 
