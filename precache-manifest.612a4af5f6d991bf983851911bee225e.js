@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/slider-perf-demo/static/js/runtime~main.a98c9a1b.js"
   },
   {
-    "revision": "519bcf60485f92900776",
-    "url": "/slider-perf-demo/static/js/main.23dd16be.chunk.js"
+    "revision": "5f57f3bed068656c7d4f",
+    "url": "/slider-perf-demo/static/js/main.66200e7a.chunk.js"
   },
   {
-    "revision": "9b9bdf9f91a74abf05f7",
-    "url": "/slider-perf-demo/static/js/2.e7f9f0fe.chunk.js"
+    "revision": "f7b1eebafad62d4d28ad",
+    "url": "/slider-perf-demo/static/js/2.3296e5cb.chunk.js"
   },
   {
-    "revision": "519bcf60485f92900776",
+    "revision": "5f57f3bed068656c7d4f",
     "url": "/slider-perf-demo/static/css/main.be5ead27.chunk.css"
   },
   {
-    "revision": "9b9bdf9f91a74abf05f7",
+    "revision": "f7b1eebafad62d4d28ad",
     "url": "/slider-perf-demo/static/css/2.781af80f.chunk.css"
   },
   {
-    "revision": "217a5789bdc7b3dddbd5cf06b421e730",
+    "revision": "79d1a49e2f8ffe129efa66fc3d739e68",
     "url": "/slider-perf-demo/index.html"
   }
 ];
